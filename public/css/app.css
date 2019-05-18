@@ -11692,3 +11692,12 @@ body {
   cursor: pointer;
 }
 
+.jumbotron.bg-secure {
+  background: #e18520;
+  border-radius: 0;
+}
+
+a.nav-link {
+  font-size: 1rem;
+}
+
