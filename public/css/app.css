@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);/*!
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,700);/*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
  * Copyright 2011-2019 Twitter, Inc.
@@ -11650,5 +11650,45 @@ a.text-dark:focus {
   background-color: #fff;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.bg-home,
+.jumbotron.bg {
+  background: #a8cae2;
+  border-radius: 0;
+}
+
+.img-home {
+  margin: 30px 30px 30px 0px;
+}
+
+.title-home {
+  font-size: 2.3rem;
+}
+
+.subtitle-home {
+  font-size: 1.5rem;
+}
+
+.alert-home {
+  border-top: 1px solid #72b6ec;
+  border-bottom: 1px solid #72b6ec;
+}
+
+.card-header {
+  background: #a8cae2;
+}
+
+.card-header:hover {
+  cursor: pointer;
 }
 
