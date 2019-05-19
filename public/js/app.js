@@ -14185,7 +14185,8 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(12);
-module.exports = __webpack_require__(44);
+__webpack_require__(44);
+module.exports = __webpack_require__(45);
 
 
 /***/ }),
@@ -49214,7 +49215,13 @@ if (false) {
 /* 44 */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed: ModuleBuildError: Module build failed: \r\nundefined\r\n^\r\n      Invalid CSS after \"}\": expected selector or at-rule, was \"}\"\r\n      in C:\\laragon\\www\\DipaSecure\\resources\\sass\\app.scss (line 60, column 2)\n    at runLoaders (C:\\laragon\\www\\DipaSecure\\node_modules\\webpack\\lib\\NormalModule.js:195:19)\n    at C:\\laragon\\www\\DipaSecure\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at C:\\laragon\\www\\DipaSecure\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18\n    at context.callback (C:\\laragon\\www\\DipaSecure\\node_modules\\loader-runner\\lib\\LoaderRunner.js:111:13)\n    at Object.asyncSassJobQueue.push [as callback] (C:\\laragon\\www\\DipaSecure\\node_modules\\sass-loader\\lib\\loader.js:55:13)\n    at Object.done [as callback] (C:\\laragon\\www\\DipaSecure\\node_modules\\neo-async\\async.js:8067:18)\n    at options.error (C:\\laragon\\www\\DipaSecure\\node_modules\\node-sass\\lib\\index.js:294:32)");
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 45 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

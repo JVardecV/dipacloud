@@ -11697,7 +11697,9 @@ body {
   border-radius: 0;
 }
 
-a.nav-link {
+a.nav-link,
+.nav-item a,
+a.dropdown-item {
   font-size: 1rem;
 }
 
