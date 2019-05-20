@@ -63,6 +63,9 @@
                     <a href="#filesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-file-upload"></i> Mis archivos</a>
                     <ul class="collapse list-unstyled" id="filesSubmenu">
                         <li>
+                            <a href="{{ route('file.create') }}">Agregar archivos</a>
+                        </li>
+                        <li>
                             <a href="#">Imágenes</a>
                         </li>
                         <li>
@@ -121,7 +124,7 @@
                 <li>
                     <a href="{{ route('logout') }}" class="logout" onclick="event.preventDefault();
                              document.getElementById('logout-form').submit();">
-                {{ __('Logout') }}><i class="fas fa-power-off"></i> Cerrar sesión</a>
+                             <i class="fas fa-power-off"></i> Cerrar sesión</a>
                 </li>
             </ul>
         </nav>
@@ -129,7 +132,27 @@
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             @csrf
         </form>
+    <!-- Page Content Holder -->
+        <div id="content">
 
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="navbar-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+
+                    <div id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a>@yield('page')</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
         
 
     @yield('content')
