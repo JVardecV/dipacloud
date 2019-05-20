@@ -26,7 +26,7 @@
     <div class="wrapper">
         <!-- Sidebar Holder -->
         <nav id="sidebar">
-            <a class="navbar-brand ml-4" href="#">
+            <a class="navbar-brand ml-4 pt-4" href="#">
                <img src="{{ asset('img/logo-white.svg') }}" width="30" height="30" class="d-inline-block align-top" alt="">
             DipaSecure
             </a>
@@ -63,19 +63,19 @@
                     <a href="#filesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-file-upload"></i> Mis archivos</a>
                     <ul class="collapse list-unstyled" id="filesSubmenu">
                         <li>
-                            <a href="{{ route('file.create') }}">Agregar archivos</a>
+                            <a href="{{ route('file.create') }}">Agregar archivo</a>
                         </li>
                         <li>
-                            <a href="#">Imágenes</a>
+                            <a href="{{ route('file.images') }}">Imágenes</a>
                         </li>
                         <li>
-                            <a href="#">Videos</a>
+                            <a href="{{ route('file.videos') }}">Videos</a>
                         </li>
                         <li>
-                            <a href="#">Documentos</a>
+                            <a href="{{ route('file.audios') }}">Audios</a>
                         </li>
                         <li>
-                            <a href="#">ZIP</a>
+                            <a href="{{ route('file.documents') }}">Documentos</a>
                         </li>
                     </ul>
                 </li>
@@ -154,6 +154,11 @@
                 </div>
             </nav>
         
+    
+
+    @include('admin.partials.alert')
+
+    @include('admin.partials.error')
 
     @yield('content')
 

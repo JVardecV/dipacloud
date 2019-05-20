@@ -10,6 +10,7 @@
 				<label>
 					Selecciona un archivo para subirlo
 				</label>
+				<input type="text" name="name" placeholder="Ingresa un nombre">
 				<input type="file" class="form-control-file" name="file" required>
 			</div>
 
