@@ -18,7 +18,7 @@
 			 		</tr>
 			 	</thead>
 			 	<tbody>
-			 		@foreach($documents as $document)
+			 		@forelse($documents as $document)
 			 		<tr>
 			 			<th scope="row">
 			 				@if($document->extension == 'pdf' || $document->extension == 'PDF')
@@ -52,7 +52,14 @@
 			 			</th>
 			 		</tr>
 			 	</tbody>
-			 	@endforeach
+			 	@empty
+			 	<div class="container mb-3">
+					<div class="alert alert-warning" role="alert">
+			        	<span class="closebtn" onclick="this.parentElement.style.display='none';">x</span>
+			        	<strong>¡Atención!</strong> ¡No tienes ningún documento!
+			    	</div>
+				</div>
+			 	@endforelse
 			 </table>
 		</div>
 		
