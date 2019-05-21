@@ -84,7 +84,7 @@
                     <a href="#rolesSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-unlock-alt"></i> Roles</a>
                     <ul class="collapse list-unstyled" id="rolesSubmenu">
                         <li>
-                            <a href="#">Ver todos</a>
+                            <a href="{{ route('role.index') }}">Ver todos</a>
                         </li>
                         <li>
                             <a href="#">Agregar rol</a>
