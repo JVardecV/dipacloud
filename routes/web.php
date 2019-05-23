@@ -56,6 +56,26 @@ Route::patch('roles/{id}/eliminar','Admin\RolesController@destroy')->name('role.
 
 Route::patch('roles/{id}/eliminar','Admin\RolesController@destroy')->name('role.destroy');
 
+
+//Permissions
+Route::get('permisos','Admin\PermissionsController@index')->name('permission.index');
+
+Route::get('permisos/agregar','Admin\PermissionsController@create')->name('permission.create');
+
+Route::patch('permisos/agregar','Admin\PermissionsController@store')->name('permission.store');
+
+Route::get('permisos/{id}/editar','Admin\PermissionsController@edit')->name('permission.edit');
+
+//Route::get('permisos/{id}','Admin\PermissionsController@show')->name('permission.show');
+
+Route::patch('permisos/{id}/editar','Admin\PermissionsController@update')->name('permission.update');
+
+Route::patch('permisos/{id}/eliminar','Admin\PermissionsController@destroy')->name('permission.destroy');
+
+Route::patch('permisos/{id}/eliminar','Admin\PermissionsController@destroy')->name('permission.destroy');
+
+
+
 //Route::get('archivos/imagenes','FilesController@images')->name('file.images')->middleware('permission:file.images');
 
 //Route::get('archivos/videos','FilesController@videos')->name('file.videos')->middleware('permission:file.videos');

@@ -4,7 +4,7 @@
 
 @section('content')
 
-<form class="was-validate" action="{{ route('role.update',$role->id) }}" method="POST">
+<form class="was-validated" action="{{ route('role.update',$role->id) }}" method="POST">
 	@csrf
 	@method('PATCH')
 	<div class="form-row">

@@ -46,7 +46,7 @@ class PermissionsController extends Controller
     public function store(Request $request)
     {
         $permissions = Permission::create($request->all());
-        $role->permissions()->sync($request->get('permissions'));
+        //$role->permissions()->sync($request->get('permissions'));
 
         return back()->with('info',['success','se ha creado el permiso']);
     }
@@ -70,8 +70,8 @@ class PermissionsController extends Controller
      */
     public function edit($id)
     {
-        $permissions = Permission::find($id);
-        return view('admin.permissions.edit',compact('permissions'));
+        $permission = Permission::find($id);
+        return view('admin.permissions.edit',compact('permission'));
     }
 
     /**
@@ -83,7 +83,7 @@ class PermissionsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $permissions = Permission::find($id)->update();
+        $permissions = Permission::find($id)->update($request->all());
         return back()->with('info',['success','Se ha actualizado el permiso']);
     }
 

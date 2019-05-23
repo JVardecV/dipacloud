@@ -1,37 +1,27 @@
 @extends('admin.layouts.app')
 
-@section('page','Crear un nuevo rol')
+@section('page','Crear un nuevo permiso')
 
 @section('content')
 
-<form class="was-validate" action="{{ route('role.store') }}" method="POST">
+<form class="was-validated" action="{{ route('permission.store') }}" method="POST">
 	@csrf
 	<input type="hidden" name="_method" value="PATCH">
+
 	<div class="form-row">
 		<div class="col-sm-6 mb-3">
-			<label for="RoleName">Nombre del rol</label>
-			<input type="text" name="name" class="form-control is-valid" id="RoleName" placeholder="Nombre del rol" required>
-			<div class="invalid-feedback">¡Debes agregar un nombre!</div>
+			<label for="RoleName">Nombre del permiso (Ej: role.create)</label>
+			<input type="text" name="name" class="form-control is-valid" id="RoleName" placeholder="role.create" required>
+			<div class="invalid-feedback">¡Debes agregar un nombre de permiso!</div>
 		</div>
 		<div class="col-sm-6 mb-3">
-			<label for="RoleName">¡Ten cuidado con los permisos que otorgas!</label>
-			<div class="form-group">
-				<ul class="list-group list-group-flush">
-					<div class="col-auto my-1">
-						<div class="custom-control custom-checkbox mr-sm-2">
-							@foreach($permissions as $permission)
-								<li class="list-group">
-									<input type="checkbox" name="permissions[]" class="custom-control-input" id="{{ $permission->id }}" value="{{ $permission->id }}">
-									<label class="custom-control-label" for="{{ $permission->id }}">{{ $permission->name }}</label>
-								</li>
-							@endforeach
-						</div>
-					</div>
-				</ul>
-			</div>
+			<label for="RoleName">Descripción del permiso</label>
+			<input type="text" name="description" class="form-control is-valid" id="RoleName" placeholder="Detalles del permiso" required>
+			<div class="invalid-feedback">¡Debes agregar una descripción!</div>
 		</div>
+		
 	</div>
-	<button class="btn btn-primary" type="submit"><i class="fas fa-plus-circle"></i> Agregar</button>
+	<button class="btn btn-outline-success" type="submit"><i class="fas fa-plus-circle"></i> Agregar</button>
 	 
 </form>
 

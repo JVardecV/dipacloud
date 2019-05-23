@@ -1,40 +1,28 @@
 @extends('admin.layouts.app')
 
-@section('page','Editar rol')
+@section('page','Editar un permiso')
 
 @section('content')
 
-<form class="was-validate" action="{{ route('role.update',$role->id) }}" method="POST">
+<form class="was-validated" action="{{ route('permission.update',$permission->id) }}" method="POST">
 	@csrf
 	@method('PATCH')
 	<div class="form-row">
 		<div class="col-sm-6 mb-3">
-			<label for="RoleName">Nombre del rol</label>
-			<input type="text" name="name" class="form-control is-valid" id="RoleName" value="{{ $role->name }}" required>
-			<div class="invalid-feedback">¡Debes agregar un nombre!</div>
+			<label for="permissionName">Nombre del permiso</label>
+			<input type="text" name="name" class="form-control is-valid" id="permissionName" value="{{ $permission->name }}" required>
+			<div class="invalid-feedback">¡el nombre no puede estar en blanco!</div>
 		</div>
+
 		<div class="col-sm-6 mb-3">
-			<label for="RoleName">¡Ten cuidado con los permisos que otorgas!</label>
-			<div class="form-group">
-				<ul class="list-group list-group-flush">
-					<div class="col-auto my-1">
-						<div class="custom-control custom-checkbox mr-sm-2">
-							@foreach($permissions as $permission)
-								<li class="list-group">
-									<input type="checkbox" name="permissions[]" class="custom-control-input" id="{{ $permission->id }}" value="{{ $permission->id }}"
-									@if($role->permissions->contains($permission)) checked
-									@endif
-									>
-									<label class="custom-control-label" for="{{ $permission->id }}">{{ $permission->description }}</label>
-								</li>
-							@endforeach
-						</div>
-					</div>
-				</ul>
-			</div>
+			<label for="permissionName">Descripcion del permiso</label>
+			<input type="text" name="description" class="form-control is-valid" id="permissionName" value="{{ $permission->description }}" required>
+			<div class="invalid-feedback">¡Debes agregar una descripción!</div>
 		</div>
+		
+
 	</div>
-	<button class="btn btn-primary" type="submit"><i class="fas fa-plus-circle"></i> Actualizar</button>
+	<button class="btn btn-outline-success" type="submit"><i class="fas fa-plus-circle"></i> Actualizar</button>
 	 
 </form>
 

@@ -87,7 +87,7 @@
                             <a href="{{ route('role.index') }}">Ver todos</a>
                         </li>
                         <li>
-                            <a href="#">Agregar rol</a>
+                            <a href="{{ route('role.create') }}">Agregar rol</a>
                         </li>
                     </ul>
                 </li>
@@ -96,10 +96,10 @@
                     <a href="#permissionSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-fingerprint"></i> Permisos</a>
                     <ul class="collapse list-unstyled" id="permissionSubmenu">
                         <li>
-                            <a href="#">Ver todos</a>
+                            <a href="{{ route('permission.index') }}">Ver todos</a>
                         </li>
                         <li>
-                            <a href="#">Agregar permiso</a>
+                            <a href="{{ route('permission.create') }}">Agregar permiso</a>
                         </li>
                     </ul>
                 </li>
