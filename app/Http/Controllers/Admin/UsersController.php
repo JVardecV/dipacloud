@@ -52,7 +52,12 @@ class UsersController extends Controller
             'password' => $request->get('password')
         ]);*/
 
-        $user = User::create(request(['name','email','password','email','image']));
+        $user = new User();
+
+        $user->name = $request->get('name');
+        $user->email = $request->get('email');
+        $user->password = bcrypt($request->get('password'));
+        $user->save();
 
 
        // $user = User::create($request->except('permissions'));
@@ -82,7 +87,8 @@ class UsersController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('admin.users.edit',compact('user'));
+        $roles = Role::get();
+        return view('admin.users.edit',compact('roles','user'));
     }
 
     /**
@@ -95,9 +101,9 @@ class UsersController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::find($id);
-        $user->update($request->all());
-        //dd($request->all());
-        //$role->permissions()->sync($request->get('permissions'));
+        $user->update($request->except('roles'));
+        $user->roles()->sync($request->get('roles'));
+
         return back()->with('info',['success','Se han actualizado los datos del usuario']);
     }
 
@@ -109,6 +115,7 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id)->delete();
+        return back()->with('info',['success','Se ha eliminado el usuario']);
     }
 }

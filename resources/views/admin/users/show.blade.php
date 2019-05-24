@@ -13,7 +13,7 @@
 				<p class="text-center">{{ $user->email }}</p>
 
 				<div class="d-flex row-flex justify-content-center">
-					<a class="btn btn-outline-success" href="{{-- route('user.index') --}}"><i class="fas fa-edit"></i> Editar perfil</a>
+					<a class="btn btn-outline-success" href="{{ route('user.edit',$user->id) }}"><i class="fas fa-edit"></i> Editar perfil</a>
 				</div>
 			</div>
 		</div>
