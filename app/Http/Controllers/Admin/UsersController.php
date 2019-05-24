@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
 
-
-class PermissionsController extends Controller
+class UsersController extends Controller
 {
 
     public function __construct(){
         $this->middleware('auth');
-        $this->middleware('role:Admin');
+        //$this->middleware('role:Admin');
     }
 
     /**
@@ -23,8 +22,8 @@ class PermissionsController extends Controller
      */
     public function index()
     {
-        $permissions = Permission::all();
-        return view('admin.permissions.index',compact('permissions'));
+        $users = User::all();
+        return view('admin.users.index',compact('users'));
     }
 
     /**
@@ -34,7 +33,8 @@ class PermissionsController extends Controller
      */
     public function create()
     {
-        return view('admin.permissions.create');
+        $roles = role::all();
+        return view('admin.users.create', compact('roles'));
     }
 
     /**
@@ -45,10 +45,20 @@ class PermissionsController extends Controller
      */
     public function store(Request $request)
     {
-        $permissions = Permission::create($request->all());
-        //$role->permissions()->sync($request->get('permissions'));
+        /*$user = User::create([
+            'name' => $request->get('name'),
+            'email' => $request->get('email'),
+            'image' => $request->get('image'),
+            'password' => $request->get('password')
+        ]);*/
 
-        return back()->with('info',['success','se ha creado el permiso']);
+        $user = User::create(request(['name','email','password','email','image']));
+
+
+       // $user = User::create($request->except('permissions'));
+        $user->roles()->sync($request->get('roles'));
+
+        return back()->with('info',['success','Se ha creado el usuario']);
     }
 
     /**
@@ -59,9 +69,8 @@ class PermissionsController extends Controller
      */
     public function show($id)
     {
-        $role = Role::find($id);
-        $permissions = Permission::get();
-        return view('admin.roles.show',compact('role','permissions'));
+        $user = User::find($id);
+        return view('admin.users.show',compact('user'));
     }
 
     /**
@@ -72,8 +81,8 @@ class PermissionsController extends Controller
      */
     public function edit($id)
     {
-        $permission = Permission::find($id);
-        return view('admin.permissions.edit',compact('permission'));
+        $user = User::find($id);
+        return view('admin.users.edit',compact('user'));
     }
 
     /**
@@ -85,8 +94,11 @@ class PermissionsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $permissions = Permission::find($id)->update($request->all());
-        return back()->with('info',['success','Se ha actualizado el permiso']);
+        $user = User::find($id);
+        $user->update($request->all());
+        //dd($request->all());
+        //$role->permissions()->sync($request->get('permissions'));
+        return back()->with('info',['success','Se han actualizado los datos del usuario']);
     }
 
     /**
@@ -97,7 +109,6 @@ class PermissionsController extends Controller
      */
     public function destroy($id)
     {
-        $permissions = Permission::find($id)->delete();
-        return back()->with('info',['warning','Se ha eliminado el permiso']);
+        //
     }
 }
