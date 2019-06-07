@@ -23,7 +23,7 @@
     <header> 
       <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top alert-home">
             <a class="navbar-brand" href="{{ route('home') }}">
-               <img src="{{asset('img/logo.svg')}}" width="30" height="30" class="d-inline-block align-top" alt="">
+               <img src="{{asset('img/owl.png')}}" width="30" height="30" class="d-inline-block align-top" alt="">
             DipaSecure
             </a>
 
@@ -95,7 +95,7 @@
          <footer class="container py-5">
             <div class="row">
                <div class="col-12 col-md">
-                  <img src="img/logo.svg" width="100">
+                  <img src="img/owl.png" width="100">
                   <small class="d-block mb-3 text-muted text-left">® DipaSecure</small>
                </div>
 
@@ -110,14 +110,12 @@
                   <h5>Más información</h5>
                   <ul class="list-unstyled text-small">
                      <li><a class="text-muted" href="#">Youtube</a></li>
-                     <li><a class="text-muted" href="#">GitHub</a></li>
                      <li><a class="text-muted" href="#">Twitter</a></li>
-                     <li><a class="text-muted" href="#">Café y Código</a></li>
                   </ul>
                </div>
                <div class="col-sm-6 col-md-3 text-right">
                   <h5>Medios de pago</h5>
-                  <img class="img-fluid" src="http://3.bp.blogspot.com/-oumQWdMsBL8/Vh94mt2nYLI/AAAAAAAAANQ/qPwSgz1YgJc/s400/Payment%2BCard%2BNetworks%2BLogo.jpg" width="220">
+                  <img class="img-fluid" src="img/payment_cards.jpg" width="220">
                </div>
          </footer>
     

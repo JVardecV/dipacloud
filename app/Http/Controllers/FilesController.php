@@ -15,7 +15,7 @@ class FilesController extends Controller
     
     private $img_ext = ['jpg','png','jpeg','gif','JPG','PNG','JPEG','GIF'];
     private $video_ext = ['mp4','avi','mpeg','gif','MP4','AVI','MPEG'];
-    private $document_ext = ['doc','docx','pdf','odt','xlsx','DOC','DOCX','PDF','ODT','XLSX'];
+    private $document_ext = ['doc','docx','pdf','odt','xlsx','dxf','dwg','kml','kmz','3dm','pptx','PPTX','3DM','DOC','DOCX','PDF','ODT','XLSX','DXF','DWG','KML','KMZ'];
     private $audio_ext = ['mp3','mpga','wma','ogg','MP3','MPGA','WMA','OGG'];
 
     public function __construct(){
@@ -102,8 +102,10 @@ class FilesController extends Controller
 
     }
 
-    public function destroy($id){
-        $file = File::findOrFail($id);
+    public function destroy(request $request){
+        $file = File::findOrFail($request->file_id);
+
+        |
 
         if(Storage::disk('local')->exists('/public/' . $this->getUserFolder() . '/' . $file->type . '/' . $file->name . '.' . $file->extension )){
             if(Storage::disk('local')->delete('/public/' . $this->getUserFolder() . '/' . $file->type . '/' . $file->name . '.' . $file->extension )){

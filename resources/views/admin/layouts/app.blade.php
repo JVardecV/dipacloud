@@ -10,12 +10,10 @@
     <title>{{ config('app.name', 'DipaSecure - Dashboard') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
-    {{-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous"> --}}
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -27,28 +25,27 @@
         <!-- Sidebar Holder -->
         <nav id="sidebar">
             <a class="navbar-brand ml-4 pt-4" href="#">
-               <img src="{{ asset('img/logo-white.svg') }}" width="30" height="30" class="d-inline-block align-top" alt="">
+               <img src="{{ asset('img/owl.png') }}" width="70" height="70" class="d-inline-block align-top" alt="">
             DipaSecure
             </a>
 
           <div class="container mt-4 mb-2">
             <div class="mb-2">
-            <img src="img/users/user.jpg" class="img-responsive" style="border-radius: 50%;" alt="" width="70">
+            <img src="{{ asset('img/user_static.png') }}" class="img-responsive" style="border-radius: 50%;" alt="" height="100" width="70">
           </div>
           <div class="profile-usertitle">
             <div class="profile-usertitle-name">Javier Valdés</div>
-            <div class="profile-usertitle-status">admin@admin.com</div>
+            <div class="profile-usertitle-status">admin.ti@gmail.com</div>
           </div>
           </div>
-
 
             <ul class="list-unstyled components">
               <li class="active">
-                    <a href="#"><i class="fas fa-chart-line"></i> Panel</a>
+                    <a href="{{ route('dashboard') }}"><i class="fas fa-chart-line"></i> Panel</a>
                 </li>
 
                 <li>
-                    <a href="#profileSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-user-circle"></i> Mi perfil</a>
+                    <a href="#" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" data-target="#profileSubmenu"><i class="fas fa-user-circle"></i> Mi perfil</a>
                     <ul class="collapse list-unstyled" id="profileSubmenu">
                         <li>
                             <a href="#">Ver mi perfil</a>
@@ -162,7 +159,7 @@
 
     @yield('content')
 
-    <script src="{{ asset('js/slim.js') }}"></script>
+    <script src="{{ asset('js/slim.min.js') }}"></script>
       
     <script type="text/javascript">
         $(document).ready(function () {
@@ -176,6 +173,6 @@
     @yield('scripts') 
 
          
-    
+  </div>  
   </body>
 </html>

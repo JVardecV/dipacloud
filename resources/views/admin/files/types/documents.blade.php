@@ -30,6 +30,21 @@
 			 				@if($document->extension == 'docx' || $document->extension == 'DOCX')
 								<img class="img-responsive" src="{{ asset('img/files/word.svg') }}" width="35px">
 			 				@endif
+			 				@if($document->extension == 'dxf' || $document->extension == 'DXF')
+								<img class="img-responsive" src="{{ asset('img/files/dxf.svg') }}" width="35px">
+			 				@endif
+			 				@if($document->extension == 'dwg' || $document->extension == 'DWG')
+								<img class="img-responsive" src="{{ asset('img/files/dwg.svg') }}" width="35px">
+			 				@endif
+			 				@if($document->extension == 'kml' || $document->extension == 'KML')
+								<img class="img-responsive" src="{{ asset('img/files/kml.svg') }}" width="35px">
+			 				@endif
+			 				@if($document->extension == '3dm' || $document->extension == '3DM')
+								<img class="img-responsive" src="{{ asset('img/files/3dm.svg') }}" width="35px">
+			 				@endif
+			 				@if($document->extension == 'pptx' || $document->extension == 'PPTX')
+								<img class="img-responsive" src="{{ asset('img/files/powerpoint.svg') }}" width="35px">
+			 				@endif
 			 			</th>
 			 			<th scope="row">{{ $document->name }}</th>
 			 			<th scope="row">{{ $document->created_at->DiffForHumans() }}</th>

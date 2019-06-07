@@ -15,7 +15,7 @@
                </div>
 
                <div class="col-sm-12 col-md-6 d-none d-md-none d-lg-block shadow">
-                  <div class="container"><img class="w-100 img-home" src="{{ asset('img/admin.png') }}">
+                  <div class="container"><img class="w-100 img-home" src="{{ asset('img/dipasecure-home.png') }}">
                   </div>
                </div>
             </div>
@@ -38,11 +38,11 @@
                            <h4 class="my-0 font-weight-normal">Mensual</h4>
                         </div>
                         <div class="card-body text-left">
-                           <h1 class="card-title pricing-card-title">$19 <small class="text-muted">/ mes</small></h1>
+                           <h1 class="card-title pricing-card-title">$14.990<small class="text-muted">/ mes</small></h1>
                            <ul class="list-unstyled mt-3 mb-4">
                               <li><i class="fas fa-dollar-sign"></i> <del>Descuento</del></li>
                               <li><i class="fas fa-user-circle"></i> Múltiples inicios de sesión</li>
-                              <li><i class="far fa-hdd"></i> 20 GB de almacenamiento</li>
+                              <li><i class="far fa-hdd"></i> 25 GB de almacenamiento</li>
                               <li><i class="fas fa-headset"></i> Soporte técnico</li>
                               <li><i class="far fa-calendar-alt"></i> Acceso 24/7</li>
                               <li><i class="fas fa-cloud-upload-alt"></i> Subir cualquier tipo de archivos</li>
@@ -59,11 +59,11 @@
                            <h4 class="my-0 font-weight-normal">Semestral</h4>
                         </div>
                         <div class="card-body text-left">
-                           <h1 class="card-title pricing-card-title">$99 <small class="text-muted">/ mes</small></h1>
+                           <h1 class="card-title pricing-card-title">$69.990<small class="text-muted">/ Semestral</small></h1>
                            <ul class="list-unstyled mt-3 mb-4">
-                              <li><i class="fas fa-dollar-sign"></i> Descuento de <b>$15</b></li>
+                              <li><i class="fas fa-dollar-sign"></i> Descuento de <b>$19.950</b></li>
                               <li><i class="fas fa-user-circle"></i> Múltiples inicios de sesión</li>
-                              <li><i class="far fa-hdd"></i> 20 GB de almacenamiento</li>
+                              <li><i class="far fa-hdd"></i> 250 GB de almacenamiento</li>
                               <li><i class="fas fa-headset"></i> Soporte técnico</li>
                               <li><i class="far fa-calendar-alt"></i> Acceso 24/7</li>
                               <li><i class="fas fa-cloud-upload-alt"></i> Subir cualquier tipo de archivos</li>
@@ -79,11 +79,11 @@
                            <h4 class="my-0 font-weight-normal">Anual</h4>
                         </div>
                         <div class="card-body text-left">
-                           <h1 class="card-title pricing-card-title">$199 <small class="text-muted">/ mes</small></h1>
+                           <h1 class="card-title pricing-card-title">$140.990<small class="text-muted">/ anual</small></h1>
                            <ul class="list-unstyled mt-3 mb-4">
-                              <li><i class="fas fa-dollar-sign"></i> Descuento de <b>$29</b></li>
+                              <li><i class="fas fa-dollar-sign"></i> Descuento de <b>$38.890</b></li>
                               <li><i class="fas fa-user-circle"></i> Múltiples inicios de sesión</li>
-                              <li><i class="far fa-hdd"></i> 20 GB de almacenamiento</li>
+                              <li><i class="far fa-hdd"></i> 350 GB de almacenamiento</li>
                               <li><i class="fas fa-headset"></i> Soporte técnico</li>
                               <li><i class="far fa-calendar-alt"></i> Acceso 24/7</li>
                               <li><i class="fas fa-cloud-upload-alt"></i> Subir cualquier tipo de archivos</li>

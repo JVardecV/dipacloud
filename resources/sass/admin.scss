@@ -332,3 +332,10 @@ button.btn.btn-primary.file{
     margin: 50px;
     font-size: 1rem;
 }
+
+/*Modal center*/
+
+.modalCenter{
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+}
