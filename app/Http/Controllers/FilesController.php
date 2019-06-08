@@ -105,7 +105,7 @@ class FilesController extends Controller
     public function destroy(request $request){
         $file = File::findOrFail($request->file_id);
 
-        |
+        //dd($file);
 
         if(Storage::disk('local')->exists('/public/' . $this->getUserFolder() . '/' . $file->type . '/' . $file->name . '.' . $file->extension )){
             if(Storage::disk('local')->delete('/public/' . $this->getUserFolder() . '/' . $file->type . '/' . $file->name . '.' . $file->extension )){
