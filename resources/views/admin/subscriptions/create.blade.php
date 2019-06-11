@@ -15,8 +15,7 @@
 		</div>
 		<div class="col-sm-6 mb-3">
 			<label for="details">Detalles del plan</label>
-			<textarea name="plan_description" class="form-control is-valid" id="details" placeholder="Todos los elementos incluidos en la descripción" rows="3" required>
-			</textarea>
+			<textarea name="plan_description" class="form-control is-valid" id="details" placeholder="Todos los elementos incluidos en la descripción" rows="3" required></textarea>
 			<div class="invalid-feedback">¡Debes agregar un nombre al plan!</div>
 		</div>
 		<div class="col-sm-6 mb-3">
@@ -34,12 +33,12 @@
 		
 		<div class="col-sm-6 mb-3">
 			<label for="ModalName">Nombre del modal</label>
-			<input type="text" name="name" class="form-control is-valid" id="ModalName" placeholder="DipaCloud" required>
+			<input type="text" name="name" class="form-control is-valid" id="ModalName" placeholder="DCMonthly" required>
 			<div class="invalid-feedback">¡Debes agregar un nombre al modal!</div>
 		</div>
 		<div class="col-sm-6 mb-3">
 			<label for="ModalDescription">Descripción del modal</label>
-			<input type="text" name="description" class="form-control is-valid" id="ModalDescription" placeholder="Plan mensual" required>
+			<input type="text" name="description" class="form-control is-valid" id="ModalDescription" placeholder="Suscripción mensual" required>
 			<div class="invalid-feedback">¡Debes agregar una descripción al modal!</div>
 		</div>
 		<div class="col-sm-6 mb-3">

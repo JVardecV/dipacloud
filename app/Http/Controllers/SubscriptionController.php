@@ -61,7 +61,8 @@ class SubscriptionController extends Controller
 
     public function storeAdmin(Request $request)
     {
-        
+        $plan = Plan::create($request->all());
+        return back()->with('info',['success','El plan se ha creado correctamente']);
     }
 
     /**
