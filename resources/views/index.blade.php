@@ -9,8 +9,17 @@
                   <div class="container">
                      <h5 class="title-home pt-5 ml-5">Almacena tus archivos  <br> con más eficiencia y <b>seguridad</b></h5>
                      <p class="subtitle-home pt-4 ml-5">Obtén el espacio que necesitas. <br>Sube tus archivos y accede a ellos <br> desde cualquier dispositivo cuando quieras.</p>
-                     <a href="{{ route('register') }}" class="btn btn-primary mt-4 ml-5">Pruébalo gratis 30 días</a>
-                     <p class="mt-2 ml-5">O bien, <a href="{{ route('login') }}">cómpralo ya mismo</a></p>
+                     @guest
+                       <a href="{{ route('register') }}" class="btn btn-primary mt-4 ml-5">Pruébalo gratis 30 días</a>
+                       <p class="mt-2 ml-5">O bien, <a href="{{ route('login') }}">cómpralo ya mismo</a></p>
+                     @else
+                       @if(Auth::user()->hasRole('Suscriptor'))
+                         <a href="{{ route('file.create') }}" class="btn btn-danger mt-4 ml-5">Sube tus archivos</a>
+                       @else
+                         <a href="{{ route('register') }}" class="btn btn-primary mt-4 ml-5">Pruébalo gratis 30 días</a>
+                         <p class="mt-2 ml-5">O bien, <a href="{{ route('login') }}">cómpralo ya mismo</a></p>
+                       @endif
+                     @endguest
                   </div>
                </div>
 
@@ -21,10 +30,10 @@
             </div>
          </section>
 
-         <div class="alert alert-light text-center alert-home text-dark" role="alert">
+         <div class="alert alert-light text-center alert-home text-dark mb-4" role="alert">
             Descubre todo el potencial que esta aplicación tiene para ti. Disponible 24/7.
          </div>
-         
+
          @if(session('info'))
            <div class="alert alert-success" role="alert">
                <span class="closebtn" onclick="this.parentElement.style.display='none';">x
@@ -56,23 +65,28 @@
                              <a href="{{ route('login') }}" class="btn btn-lg btn-block btn-outline-info">Ingresar</a>
                           @else
                              @can('payforthis', Auth::user())
-                             <form action="{{ route('subscription.store') }}" method="POST">
-                                @csrf
-                                <input type="hidden" name="plan_type" value="{{ $plan->plan_type }}">
-                               <script
-                                 src="https://checkout.stripe.com/checkout.js"
-                                 class="stripe-button"
-                                 data-key="{{ env('STRIPE_KEY') }}"
-                                 data-name="Suscripción a DipaCloud"
-                                 data-description="{{$plan->plan_name }}"
-                                 data-amount="{{$plan->amount }}"
-                                 data-currency="clp"
-                                 data-label="Seleccionar plan"
-                                 data-email="{{ Auth()->user()->email }}"
-                                 data-image="{{asset('img/owl.png')}}"
-                                 data-locale="auto">
-                               </script>
-                             </form>
+                              @if(Auth::user()->hasRole('Suscriptor'))
+                                {{--< --a href="{{ route('file.create') }}" class="btn btn-lg btn-block btn-outline-info">Subir archivos</a> --}}
+                                <a class="btn btn-lg btn-block btn-outline-info" disabled>Ya estás suscrito</a>
+                              @else
+                               <form action="{{ route('subscription.store') }}" method="POST">
+                                  @csrf
+                                  <input type="hidden" name="plan_type" value="{{ $plan->plan_type }}">
+                                 <script
+                                   src="https://checkout.stripe.com/checkout.js"
+                                   class="stripe-button"
+                                   data-key="{{ env('STRIPE_KEY') }}"
+                                   data-name="Suscripción a DipaCloud"
+                                   data-description="{{$plan->plan_name }}"
+                                   data-amount="{{$plan->amount }}"
+                                   data-currency="clp"
+                                   data-label="Seleccionar plan"
+                                   data-email="{{ Auth()->user()->email }}"
+                                   data-image="{{asset('img/owl.png')}}"
+                                   data-locale="auto">
+                                 </script>
+                               </form>
+                              @endif
                              @else
                                 <a href="{{ route('login') }}" class="btn btn-lg btn-block btn-outline-info">No puedes suscribirte</a>
                              @endcan

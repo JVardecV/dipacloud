@@ -1,4 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,700);/*!
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,700);@charset "UTF-8";
+
+/*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
  * Copyright 2011-2019 Twitter, Inc.
@@ -17578,5 +17580,48 @@ button.stripe-button-el span:hover {
 .stripe-button-el:not(:disabled):active,
 .stripe-button-el.active {
   background-color: white;
+}
+
+/*Alerta de suscripción*/
+
+.alert {
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 5px 0 rgba(47, 44, 44, 0.2);
+          box-shadow: 1px 5px 0 rgba(47, 44, 44, 0.2);
+  border: none;
+  margin: 10px 0;
+  font-size: 1rem;
+  color: #fff;
+  text-align: center;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: #fff;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.closebtn:hover {
+  cursor: pointer;
+}
+
+.alert-danger {
+  background-color: #ff3133;
+}
+
+.alert-success {
+  background-color: #3cb878;
+}
+
+.alert-info {
+  background-color: #318dff;
+}
+
+.alert-warning {
+  background-color: #fcb03b;
 }
 

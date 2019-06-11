@@ -29,11 +29,6 @@ class SubscriptionController extends Controller
         return view('admin.subscriptions.index',compact('plans'));
     }
 
-
-
-
-    
-
     /**
      * Show the form for creating a new resource.
      *
@@ -56,13 +51,16 @@ class SubscriptionController extends Controller
         $subscription = $request->get('plan_type');
 
         Auth()->user()->newSubscription('main',$subscription)->create($token);
-        return 'Se ha creado la suscripción';
+
+        Auth()->user()->assignRole('Suscriptor');
+
+        return back()->with('info',['success','Ahora estás suscrito.']);
     }
 
     public function storeAdmin(Request $request)
     {
         $plan = Plan::create($request->all());
-        return back()->with('info',['success','El plan se ha creado correctamente']);
+        return back()->with('info',['success','El plan se ha creado correctamente.']);
     }
 
     /**

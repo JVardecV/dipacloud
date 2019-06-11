@@ -52,6 +52,11 @@
                   <a href="{{ route('login') }}" class="btn btn-outline-primary">Ingresar</a>
                </li>
              @else
+                @if(Auth::user()->hasRole('Suscriptor'))
+                  <li class="nav-item">
+                    <a href="{{ route('file.create') }}" class="nav-link" style="color: black;">Sube tus archivos</a>
+                  </li>
+                @endif
                 <li>
                     <a href="{{ route('logout') }}" class="btn btn-outline-danger" onclick="event.preventDefault();
                              document.getElementById('logout-form').submit();">

@@ -114,6 +114,21 @@
                 <li>
                     <a href="#"><i class="far fa-question-circle"></i> Soporte</a>
                 </li>
+
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-users"></i> Planes</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="{{ route('plan.index') }}">Ver todos</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('plan.create') }}">Agregar usuario</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="far fa-question-circle"></i> Soporte</a>
+                </li>
             </ul>
 
             <ul class="list-unstyled CTAs">
