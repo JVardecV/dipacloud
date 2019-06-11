@@ -9,8 +9,8 @@
                   <div class="container">
                      <h5 class="title-home pt-5 ml-5">Almacena tus archivos  <br> con más eficiencia y <b>seguridad</b></h5>
                      <p class="subtitle-home pt-4 ml-5">Obtén el espacio que necesitas. <br>Sube tus archivos y accede a ellos <br> desde cualquier dispositivo cuando quieras.</p>
-                     <a href="" class="btn btn-primary mt-4 ml-5">Pruébalo gratis 30 días</a>
-                     <p class="mt-2 ml-5">O bien, <a href="">cómpralo ya mismo</a></p>
+                     <a href="{{ route('register') }}" class="btn btn-primary mt-4 ml-5">Pruébalo gratis 30 días</a>
+                     <p class="mt-2 ml-5">O bien, <a href="{{ route('login') }}">cómpralo ya mismo</a></p>
                   </div>
                </div>
 
@@ -36,7 +36,7 @@
          <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
             <p class="lead subtitle-home">Compara los planes y escoge el que más se adapte a lo que necesitas.</p>
          </div>
-
+         <!-- Planes -->
          <div class="container">
             <div class="d-flex flex-row justify-content-center align-items-center">
                <div class="row mt-5 pt-2">
@@ -84,10 +84,10 @@
                       @endforeach
                    </div>
                 </div> 
-          </div>
-
-
-            <div class="row mt-5 pt-3 mb-5">
+         </div>
+         <!-- /Planes -->
+        <!-- Caracteristicas-->
+        <div class="row mt-5 pt-3 mb-5">
                <div class="col-lg-4 text-center">
                   <img class="img-fluid" src="{{ asset('img/features/dashboard.svg') }}" alt="Interfaz amigable" width="120">
                   <h5 class="mt-5 feature-text">Interfaz amigable</h5>
@@ -103,6 +103,7 @@
                   <h5 class="mt-5 feature-text">Soporte técnico</h5>
                </div>
             </div>
-         </div>
+        </div>
+        <!-- /Caracteristicas -->
 </main>
 @endsection

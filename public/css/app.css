@@ -17431,6 +17431,7 @@ readers do not read off random characters that represent icons */
 
 body {
   font-family: 'Raleway', sans-serif;
+  overflow-x: hidden;
 }
 
 * {
@@ -17531,5 +17532,51 @@ button.btn.btn-primary.file {
   padding: 15px;
   margin: 50px;
   font-size: 1rem;
+}
+
+/*Stripe boton*/
+
+button.stripe-button-el {
+  outline: none;
+  height: 40px;
+  text-align: center;
+  width: 100%;
+  border-radius: 5px;
+  background: transparent;
+  cursor: pointer;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+  font-family: 'Raleway', sans-serif;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.stripe-button-el span,
+button.stripe-button-el span {
+  /*background: #6cb2eb;
+  color: #fff;*/
+  background: #fff;
+  color: #6cb2eb;
+  border: solid 1.5px #6cb2eb;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  padding: 3px 12px !important;
+  height: 39px !important;
+  font-weight: 400;
+}
+
+.stripe-button-el span:hover,
+button.stripe-button-el span:hover {
+  /*background: #fff;
+  color: #6cb2eb;*/
+  background: #6cb2eb;
+  color: #fff;
+}
+
+.stripe-button-el:not(:disabled):active,
+.stripe-button-el.active {
+  background-color: white;
 }
 
