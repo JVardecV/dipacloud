@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class SubscriptionController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -18,6 +23,17 @@ class SubscriptionController extends Controller
         return view('index', compact('plans'));
     }
 
+    public function indexAdmin()
+    {
+        $plans = Plan::all();
+        return view('admin.subscriptions.index',compact('plans'));
+    }
+
+
+
+
+    
+
     /**
      * Show the form for creating a new resource.
      *
@@ -25,7 +41,7 @@ class SubscriptionController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.subscriptions.create');
     }
 
     /**
@@ -43,6 +59,11 @@ class SubscriptionController extends Controller
         return 'Se ha creado la suscripción';
     }
 
+    public function storeAdmin(Request $request)
+    {
+        
+    }
+
     /**
      * Display the specified resource.
      *
@@ -51,7 +72,8 @@ class SubscriptionController extends Controller
      */
     public function show($id)
     {
-        //
+        $plan = Plan::find($id);
+        return view('admin.subscriptions.show',compact('plan'));
     }
 
     /**
@@ -62,7 +84,8 @@ class SubscriptionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $plan = Plan::find($id);
+        return view('admin.subscriptions.edit',compact('plan'));
     }
 
     /**
@@ -74,7 +97,10 @@ class SubscriptionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $plan = Plan::find($id);
+        $plan->update($request->all());
+
+        return back()->with('info',['success','El plan ha sido actualizado correctamente']);
     }
 
     /**
@@ -85,6 +111,7 @@ class SubscriptionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $plan = Plan::find($id)->delete();
+        return back()->with('info',['success','El plan ha sido eliminado correctamente']);
     }
 }
