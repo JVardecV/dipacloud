@@ -21,9 +21,17 @@
             </div>
          </section>
 
-         <div class="alert alert-light text-center alert-home" role="alert">
+         <div class="alert alert-light text-center alert-home text-dark" role="alert">
             Descubre todo el potencial que esta aplicación tiene para ti. Disponible 24/7.
          </div>
+         
+         @if(session('info'))
+           <div class="alert alert-success" role="alert">
+               <span class="closebtn" onclick="this.parentElement.style.display='none';">x
+               </span>
+               <strong>¡Éxito!</strong> Suscrito
+           </div>
+         @endif
 
          <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
             <p class="lead subtitle-home">Compara los planes y escoge el que más se adapte a lo que necesitas.</p>
@@ -32,68 +40,51 @@
          <div class="container">
             <div class="d-flex flex-row justify-content-center align-items-center">
                <div class="row mt-5 pt-2">
+                @foreach($plans as $plan)
                   <div class="col-lg-4 col-md-6 text-center">
-                     <div class="card mb-4">
-                        <div class="card-header">
-                           <h4 class="my-0 font-weight-normal">Mensual</h4>
-                        </div>
+                    <div class="card mb-4">
+                      <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">{{$plan->plan_name }}</h4>
+                      </div>
                         <div class="card-body text-left">
-                           <h1 class="card-title pricing-card-title">$14.990<small class="text-muted">/ mes</small></h1>
+                           <h1 class="card-title pricing-card-title text-center">${{ $plan->plan_price }}</h1>
                            <ul class="list-unstyled mt-3 mb-4">
-                              <li><i class="fas fa-dollar-sign"></i> <del>Descuento</del></li>
-                              <li><i class="fas fa-user-circle"></i> Múltiples inicios de sesión</li>
-                              <li><i class="far fa-hdd"></i> 25 GB de almacenamiento</li>
-                              <li><i class="fas fa-headset"></i> Soporte técnico</li>
-                              <li><i class="far fa-calendar-alt"></i> Acceso 24/7</li>
-                              <li><i class="fas fa-cloud-upload-alt"></i> Subir cualquier tipo de archivos</li>
+                              {!! $plan->plan_description !!}
                            </ul>
-                           <button type="button" class="btn btn-lg btn-block btn-outline-info">Seleccionar plan</button>
-                        </div>
-                     </div>
-                  </div>
+                     
+                          @guest
+                             <a href="{{ route('login') }}" class="btn btn-lg btn-block btn-outline-info">Ingresar</a>
+                          @else
+                             @can('payforthis', Auth::user())
+                             <form action="{{ route('subscription.store') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="plan_type" value="{{ $plan->plan_type }}">
+                               <script
+                                 src="https://checkout.stripe.com/checkout.js"
+                                 class="stripe-button"
+                                 data-key="{{ env('STRIPE_KEY') }}"
+                                 data-name="Suscripción a DipaCloud"
+                                 data-description="{{$plan->plan_name }}"
+                                 data-amount="{{$plan->amount }}"
+                                 data-currency="clp"
+                                 data-label="Seleccionar plan"
+                                 data-email="{{ Auth()->user()->email }}"
+                                 data-image="{{asset('img/owl.png')}}"
+                                 data-locale="auto">
+                               </script>
+                             </form>
+                             @else
+                                <a href="{{ route('login') }}" class="btn btn-lg btn-block btn-outline-info">No puedes suscribirte</a>
+                             @endcan
+                          @endguest
+                          </div>
 
-
-                  <div class="col-lg-4 col-md-6 text-center">
-                     <div class="card mb-4">
-                        <div class="card-header">
-                           <h4 class="my-0 font-weight-normal">Semestral</h4>
-                        </div>
-                        <div class="card-body text-left">
-                           <h1 class="card-title pricing-card-title">$69.990<small class="text-muted">/ Semestral</small></h1>
-                           <ul class="list-unstyled mt-3 mb-4">
-                              <li><i class="fas fa-dollar-sign"></i> Descuento de <b>$19.950</b></li>
-                              <li><i class="fas fa-user-circle"></i> Múltiples inicios de sesión</li>
-                              <li><i class="far fa-hdd"></i> 250 GB de almacenamiento</li>
-                              <li><i class="fas fa-headset"></i> Soporte técnico</li>
-                              <li><i class="far fa-calendar-alt"></i> Acceso 24/7</li>
-                              <li><i class="fas fa-cloud-upload-alt"></i> Subir cualquier tipo de archivos</li>
-                           </ul>
-                           <button type="button" class="btn btn-lg btn-block btn-info">Seleccionar plan</button>
-                        </div>
-                     </div>
-                  </div>
-
-                  <div class="col-lg-4 col-md-6 text-center">
-                     <div class="card mb-4">
-                        <div class="card-header">
-                           <h4 class="my-0 font-weight-normal">Anual</h4>
-                        </div>
-                        <div class="card-body text-left">
-                           <h1 class="card-title pricing-card-title">$140.990<small class="text-muted">/ anual</small></h1>
-                           <ul class="list-unstyled mt-3 mb-4">
-                              <li><i class="fas fa-dollar-sign"></i> Descuento de <b>$38.890</b></li>
-                              <li><i class="fas fa-user-circle"></i> Múltiples inicios de sesión</li>
-                              <li><i class="far fa-hdd"></i> 350 GB de almacenamiento</li>
-                              <li><i class="fas fa-headset"></i> Soporte técnico</li>
-                              <li><i class="far fa-calendar-alt"></i> Acceso 24/7</li>
-                              <li><i class="fas fa-cloud-upload-alt"></i> Subir cualquier tipo de archivos</li>
-                           </ul>
-                           <button type="button" class="btn btn-lg btn-block btn-outline-info">Seleccionar plan</button>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
+                        </div> 
+                      </div>
+                      @endforeach
+                   </div>
+                </div> 
+          </div>
 
 
             <div class="row mt-5 pt-3 mb-5">
