@@ -66,7 +66,6 @@
                           @else
                              @can('payforthis', Auth::user())
                               @if(Auth::user()->hasRole('Suscriptor'))
-                                {{--< --a href="{{ route('file.create') }}" class="btn btn-lg btn-block btn-outline-info">Subir archivos</a> --}}
                                 <a class="btn btn-lg btn-block btn-outline-info" disabled>Ya estás suscrito</a>
                               @else
                                <form action="{{ route('subscription.store') }}" method="POST">

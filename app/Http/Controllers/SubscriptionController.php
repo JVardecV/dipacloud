@@ -10,6 +10,11 @@ class SubscriptionController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('permission:plan.index');
+        $this->middleware('permission:plan.create');
+        $this->middleware('permission:plan.show');
+        $this->middleware('permission:plan.edit');
+        $this->middleware('permission:plan.destroy');
     }
 
     /**
