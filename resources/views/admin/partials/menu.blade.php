@@ -35,6 +35,12 @@
         </li>
     </ul>
 </li>
+
+<li>
+    <a href="{{ route('subscriptions.index') }}"><i class="fas fa-chart-line"></i> Suscripciones</a>
+</li>
+
+
 @endif
 @if(Auth()->user()->hasRole('Admin'))
 <li>

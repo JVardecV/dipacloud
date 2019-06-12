@@ -114,6 +114,28 @@ Route::patch('plan/{id}/eliminar','Admin\PlanController@destroy')->name('plan.de
 
 
 
+//Subscriptions
+Route::get('mis-suscripciones','SubscriptionController@subscriptions')->name('subscriptions.index');
+
+Route::get('continuar','SubscriptionController@subscriptions')->name('subscriptions.resume');
+
+Route::get('cancelar','SubscriptionController@subscriptions')->name('subscriptions.cancel');
+
+//Route::get('usuarios/agregar','Admin\UsersController@create')->name('user.create');
+
+//Route::patch('usuarios/agregar','Admin\UsersController@store')->name('user.store');
+
+//Route::get('usuarios/{id}/editar','Admin\UsersController@edit')->name('user.edit');
+
+//Route::get('usuarios/{id}','Admin\UsersController@show')->name('user.show');
+
+//Route::patch('usuarios/{id}/editar','Admin\UsersController@update')->name('user.update');
+
+//Route::patch('usuarios/{id}/eliminar','Admin\UsersController@destroy')->name('user.destroy');
+
+//Route::patch('usuarios/{id}/eliminar','Admin\UsersController@destroy')->name('user.destroy');
+
+
 //Route::get('archivos/imagenes','FilesController@images')->name('file.images')->middleware('permission:file.images');
 
 //Route::get('archivos/videos','FilesController@videos')->name('file.videos')->middleware('permission:file.videos');

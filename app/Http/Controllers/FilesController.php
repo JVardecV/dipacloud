@@ -20,7 +20,7 @@ class FilesController extends Controller
 
     public function __construct(){
     	$this->middleware('auth');
-        $this->middleware('role:Admin');
+        $this->middleware('role:Admin|Suscriptor');
 
         //Forma redundante de restringuir a partide de permisos utilizando el middleware
         //$this->middleware('permission:file.create');

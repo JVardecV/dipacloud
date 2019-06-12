@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Plan;
+use Auth;
 use Illuminate\Http\Request;
 
 class SubscriptionController extends Controller
@@ -20,6 +21,11 @@ class SubscriptionController extends Controller
         return view('index', compact('plans'));
     }
 
+    public function subscriptions()
+    {
+        $subscriptions = Auth::user()->subscriptions;
+        return view('admin.subscriptions.index', compact('subscriptions'));
+    }
 
     /**
      * Store a newly created resource in storage.
