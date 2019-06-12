@@ -41,7 +41,7 @@
 </li>
 
 <li>
-    <a href="{{ route('facturas.index') }}"><i class="fas fa-chart-line"></i> Facturas</a>
+    <a href="{{ route('facturas.index') }}"><i class="fas fa-file-invoice"></i> Facturas</a>
 </li>
 
 

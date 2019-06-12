@@ -69,7 +69,10 @@ class SubscriptionController extends Controller
 
     public function showfactura(Request $request, $invoiceId)
     {
-        //
+        return $request->user()->downloadInvoice($invoiceId, [
+            'vendor'  => 'DipaCloud',
+            'product' => 'Suscripción en la plataforma'
+        ]);
     }
 
 
