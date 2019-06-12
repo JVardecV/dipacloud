@@ -114,12 +114,24 @@ Route::patch('plan/{id}/eliminar','Admin\PlanController@destroy')->name('plan.de
 
 
 
-//Subscriptions
+//Subscripciones y facturas
 Route::get('mis-suscripciones','SubscriptionController@subscriptions')->name('subscriptions.index');
 
 Route::post('continuar','SubscriptionController@resume')->name('subscriptions.resume');
 
 Route::post('cancelar','SubscriptionController@cancel')->name('subscriptions.cancel');
+
+Route::get('mis-facturas','SubscriptionController@facturas')->name('facturas.index');
+
+Route::get('mis-facturas/{factura}','SubscriptionController@showFactura')->name('facturas.show');
+
+
+
+
+
+
+
+
 
 //Route::get('usuarios/agregar','Admin\UsersController@create')->name('user.create');
 

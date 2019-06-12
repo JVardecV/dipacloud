@@ -40,6 +40,10 @@
     <a href="{{ route('subscriptions.index') }}"><i class="fas fa-chart-line"></i> Suscripciones</a>
 </li>
 
+<li>
+    <a href="{{ route('facturas.index') }}"><i class="fas fa-chart-line"></i> Facturas</a>
+</li>
+
 
 @endif
 @if(Auth()->user()->hasRole('Admin'))

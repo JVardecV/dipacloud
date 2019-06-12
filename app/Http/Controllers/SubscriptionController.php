@@ -57,4 +57,27 @@ class SubscriptionController extends Controller
         Auth::user()->subscription(\request('plan_name'))->cancel();
         return back()->with('info',['success','La suscripción se ha cancelado.']);    
     }
+
+
+    //Facturas
+    public function facturas()
+    {
+        $facturas = Auth::user()->invoices();
+        return view('admin.subscriptions.facturas', compact('facturas'));
+    }
+
+
+    public function showfactura(Request $request, $invoiceId)
+    {
+        //
+    }
+
+
+
+
+
+
+
+
+
 }
