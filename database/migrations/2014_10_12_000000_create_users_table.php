@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('username')->unique();
             $table->string('image')->default('men_woman_users.svg');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
