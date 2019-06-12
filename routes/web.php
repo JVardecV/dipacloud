@@ -117,9 +117,9 @@ Route::patch('plan/{id}/eliminar','Admin\PlanController@destroy')->name('plan.de
 //Subscriptions
 Route::get('mis-suscripciones','SubscriptionController@subscriptions')->name('subscriptions.index');
 
-Route::get('continuar','SubscriptionController@subscriptions')->name('subscriptions.resume');
+Route::post('continuar','SubscriptionController@resume')->name('subscriptions.resume');
 
-Route::get('cancelar','SubscriptionController@subscriptions')->name('subscriptions.cancel');
+Route::post('cancelar','SubscriptionController@cancel')->name('subscriptions.cancel');
 
 //Route::get('usuarios/agregar','Admin\UsersController@create')->name('user.create');
 

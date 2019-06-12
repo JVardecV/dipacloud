@@ -33,17 +33,28 @@ class SubscriptionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function resume()
     {
-        $token = $request->get('stripeToken');
-        $subscription = $request->get('plan_type');
+        
+        $subscription = \request()->user()->subscription(\request('plan_name'));
 
-        Auth()->user()->newSubscription('main',$subscription)->create($token);
+        if($subscription->cancelled() && $subscription->onGracePeriod()){
+            \request()->user()->subscription(\request('plan_name'))->resume();
+            return back()->with('info',['success','La suscripción continuará.']);
+        }
 
-        Auth()->user()->assignRole('Suscriptor');
-
-        return back()->with('info',['success','Ahora estás suscrito.']);
+        return back();
     }
 
-    
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function cancel()
+    {
+        Auth::user()->subscription(\request('plan_name'))->cancel();
+        return back()->with('info',['success','La suscripción se ha cancelado.']);    
+    }
 }

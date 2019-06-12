@@ -31,9 +31,7 @@
 			 					@csrf
 			 					<input type="hidden" name="plan_name" value="{{ $subscription->name }}">
 			 					<button class="btn btn-success">Suscribirme</button>
-			 					
 			 				</form>
-								<a class="btn btn-danger text-white" data-toggle="modal" data-target="#deleteModal" data-file-id={{ $document->id }}><i class="fas fa-trash"></i> Eliminar</a>
 							@else
 							<form action="{{ route('subscriptions.cancel') }}" method="POST">
 			 					@csrf
