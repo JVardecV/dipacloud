@@ -82,13 +82,13 @@
             <a href="{{ route('plan.index') }}">Ver todos</a>
         </li>
         <li>
-            <a href="{{ route('plan.create') }}">Agregar usuario</a>
+            <a href="{{ route('plan.create') }}">Agregar plan</a>
         </li>
     </ul>
 </li>
 @endif
 <li>
-    <a href="#"><i class="far fa-question-circle"></i> Soporte</a>
+    <a href="mailto:soporte@dipacloud.cl"><i class="far fa-question-circle"></i> Soporte</a>
 </li>
 </ul>
 

@@ -33,8 +33,8 @@
             <img src="{{ asset('img/user_static.png') }}" class="img-responsive" style="border-radius: 50%;" alt="" height="100" width="70">
           </div>
           <div class="profile-usertitle">
-            <div class="profile-usertitle-name">Javier Valdés</div>
-            <div class="profile-usertitle-status">admin.ti@gmail.com</div>
+            <div class="profile-usertitle-name">{{ Auth::user()->name }}</div>
+            <div class="profile-usertitle-status">{{ Auth::user()->email }}</div>
           </div>
           </div>
 

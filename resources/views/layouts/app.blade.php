@@ -57,6 +57,11 @@
                     <a href="{{ route('file.create') }}" class="nav-link" style="color: black;">Sube tus archivos</a>
                   </li>
                 @endif
+                @if(Auth::user()->hasRole('Admin'))
+                  <li class="nav-item">
+                    <a href="{{ route('dashboard') }}" class="nav-link" style="color: black;">Panel administrativo</a>
+                  </li>
+                @endif
                 <li>
                     <a href="{{ route('logout') }}" class="btn btn-outline-danger" onclick="event.preventDefault();
                              document.getElementById('logout-form').submit();">

@@ -13,7 +13,7 @@
                        <a href="{{ route('register') }}" class="btn btn-primary mt-4 ml-5">Pruébalo gratis 30 días</a>
                        <p class="mt-2 ml-5">O bien, <a href="{{ route('login') }}">cómpralo ya mismo</a></p>
                      @else
-                       @if(Auth::user()->hasRole('Suscriptor'))
+                       @if(Auth::user()->hasRole('Suscriptor|Admin'))
                          <a href="{{ route('file.create') }}" class="btn btn-danger mt-4 ml-5">Sube tus archivos</a>
                        @else
                          <a href="{{ route('register') }}" class="btn btn-primary mt-4 ml-5">Pruébalo gratis 30 días</a>

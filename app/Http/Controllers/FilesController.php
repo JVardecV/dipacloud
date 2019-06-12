@@ -63,8 +63,14 @@ class FilesController extends Controller
     }
 
     public function documents(){
-        $documents = File::whereUserId(auth()->id())
-        ->OrderBy('id','desc')->where('type', '=' , 'document')->get();
+        if (Auth::check() && Auth::user()->hasRole("Admin")) {
+            $documents = File::where('type', '=', 'document')
+            ->OrderBy('id', 'desc')
+            ->get();
+        }else{
+            $documents = File::whereUserId(auth()->id())
+            ->OrderBy('id', 'desc')->where('type', '=', 'document')->get();
+        }
         
         $folder = str_slug(Auth::user()->name . '-' . Auth::id());
         
@@ -94,6 +100,7 @@ class FilesController extends Controller
     			'name' => $name,
     			'type' => $type,
     			'extension' => $ext,
+                'folder' => $this->getUserFolder(),
     			'user_id' => Auth::id()
     		]);
     	}
