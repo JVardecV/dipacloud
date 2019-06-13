@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'DipaSecure - Dashboard') }}</title>
+    <title>{{ config('app.name', 'DipaCloud - Dashboard') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/jquery-3.3.1.slim.min.js') }}"></script>
@@ -25,12 +25,12 @@
         <nav id="sidebar">
             <a class="navbar-brand ml-4 pt-4" href="#">
                <img src="{{ asset('img/owl.png') }}" width="70" height="70" class="d-inline-block align-top" alt="">
-            DipaSecure
+            DipaCloud
             </a>
 
           <div class="container mt-4 mb-2">
             <div class="mb-2">
-            <img src="{{ asset('img/user_static.png') }}" class="img-responsive" style="border-radius: 50%;" alt="" height="100" width="70">
+            <img src="{{ asset('img') }}/{{ Auth::user()->image }}" class="img-responsive" style="border-radius: 50%;" alt="" height="100" width="70">
           </div>
           <div class="profile-usertitle">
             <div class="profile-usertitle-name">{{ Auth::user()->name }}</div>

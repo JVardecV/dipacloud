@@ -14,7 +14,7 @@
 //Front-end Views
 Route::get('/','SubscriptionController@index')->name('home');
 Route::post('/','SubscriptionController@store')->name('subscription.store');
-Route::view('/seguridad','secure')->name('secure');
+//Route::view('/seguridad','secure')->name('secure');
 
 //Auth
 Auth::routes();

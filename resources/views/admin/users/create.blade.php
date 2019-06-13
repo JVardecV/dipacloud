@@ -10,8 +10,13 @@
 	<div class="form-row">
 		<div class="col-sm-6 mb-3">
 			<label for="Name">Nombre del usuario</label>
-			<input type="text" name="name" class="form-control is-valid" id="UserName" placeholder="Nombres Apellidos" required>
+			<input type="text" name="name" class="form-control is-valid" id="Name" placeholder="Nombres Apellidos" required>
 			<div class="invalid-feedback">¡Debes agregar un nombre completo!</div>
+		</div>
+		<div class="col-sm-6 mb-3">
+			<label for="userName">Username</label>
+			<input type="text" name="username" class="form-control is-valid" id="userName" placeholder="Nombres Apellidos" required>
+			<div class="invalid-feedback">¡Debes agregar un username!</div>
 		</div>
 		<div class="col-sm-6 mb-3">
 			<label for="Email">Email del usuario</label>

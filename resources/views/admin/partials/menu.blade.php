@@ -8,10 +8,10 @@
     <a href="#" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" data-target="#profileSubmenu"><i class="fas fa-user-circle"></i> Mi perfil</a>
     <ul class="collapse list-unstyled" id="profileSubmenu">
         <li>
-            <a href="#">Ver mi perfil</a>
+            <a href="{{ route('user.show', Auth()->user()->id) }}">Ver mi perfil</a>
         </li>
         <li>
-            <a href="#">Actualizar perfil</a>
+            <a href="{{ route('user.edit', Auth()->user()->id) }}">Actualizar perfil</a>
         </li>
     </ul>
 </li>
@@ -81,10 +81,6 @@
         </li>
     </ul>
 </li>
-<li>
-    <a href="#"><i class="far fa-question-circle"></i> Soporte</a>
-</li>
-
 <li>
     <a href="#PlansSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-users"></i> Planes</a>
     <ul class="collapse list-unstyled" id="PlansSubmenu">

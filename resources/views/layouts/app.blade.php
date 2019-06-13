@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'DipaSecure') }}</title>
+    <title>{{ config('app.name', 'DipaCloud') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -24,7 +24,7 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top alert-home">
             <a class="navbar-brand" href="{{ route('home') }}">
                <img src="{{asset('img/owl.png')}}" width="30" height="30" class="d-inline-block align-top" alt="">
-            DipaSecure
+            DipaCloud
             </a>
 
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDS" aria-controls="navbarsDS" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,7 +42,7 @@
              <li class="nav-item dropdown">
                <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown06" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Más información</a>
                <div class="dropdown-menu" aria-labelledby="dropdown06">
-                 <a class="dropdown-item" href="{{ route('secure') }}">Seguridad</a>
+                 <a class="dropdown-item" href="#{{-- route('secure') --}}">Seguridad</a>
                  <a class="dropdown-item" href="#">Clientes</a>
                  <a class="dropdown-item" href="#">Preguntas frecuentes</a>
                </div>
@@ -106,11 +106,11 @@
             <div class="row">
                <div class="col-12 col-md">
                   <img src="img/owl.png" width="100">
-                  <small class="d-block mb-3 text-muted text-left">® DipaSecure</small>
+                  <small class="d-block mb-3 text-muted text-left">® DipaCloud</small>
                </div>
 
                <div class="col-sm-6 col-md-3">
-                  <h5>DipaSecure</h5>
+                  <h5>DipaCloud</h5>
                   <p class="text-small text-muted">
                      Los pagos y el almacenamiento dentro de nuestra plataforma son totalmente seguros. Los archivos estarán disponibles instantáneamente. Contamos con un servicio de almacenamiento 24/7
                   </p>

@@ -9,12 +9,17 @@
 	@method('PATCH')
 	<div class="form-row">
 		<div class="col-sm-6 mb-3">
-			<label for="RoleName">Nombre del usuario</label>
+			<label for="UserName">Nombre del usuario</label>
 			<input type="text" name="name" class="form-control is-valid" id="UserName" value="{{ $user->name }}" required>
 			<div class="invalid-feedback">¡No puedes dejar el usuario sin nombre!</div>
 		</div>
 		<div class="col-sm-6 mb-3">
-			<label for="RoleName">Email del usuario</label>
+			<label for="UserFoto">Foto del usuario</label>
+			<input type="file" name="image" class="form-control is-valid" id="UserFoto" required>
+			<div class="invalid-feedback">¡No puedes dejar el usuario sin fotografía!</div>
+		</div>
+		<div class="col-sm-6 mb-3">
+			<label for="UserEmail">Email del usuario</label>
 			<input type="email" name="email" class="form-control is-valid" id="UserEmail" value="{{ $user->email }}" required>
 			<div class="invalid-feedback">¡No puedes dejar el usuario sin email!</div>
 		</div>
