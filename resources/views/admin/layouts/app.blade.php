@@ -30,7 +30,7 @@
 
           <div class="container mt-4 mb-2">
             <div class="mb-2">
-            <img src="{{ asset('img') }}/{{ Auth::user()->image }}" class="img-responsive" style="border-radius: 50%;" alt="" height="100" width="70">
+            <img src="{{ asset('storage') }}/{{ str_slug(Auth::user()->name . '-' . Auth::id()) }}/avatar/{{ Auth::user()->image }}" class="img-responsive" style="border-radius: 50%;" alt="" height="100" width="70">
           </div>
           <div class="profile-usertitle">
             <div class="profile-usertitle-name">{{ Auth::user()->name }}</div>

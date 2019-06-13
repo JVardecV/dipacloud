@@ -77,9 +77,6 @@ class FilesController extends Controller
         return view('admin.files.types.documents', compact('documents','folder'));
     }
 
-    public function photo_personal(){
-        if(Auth::check() && Auth::user()->hasRole("Admin|Suscriptor"))
-    }
 
 
 

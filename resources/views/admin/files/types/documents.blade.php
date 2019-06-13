@@ -11,10 +11,10 @@
 			 	<thead>
 			 		<tr>
 			 			<th scope="col"></th>
-			 			<th scope="col">Nombre</th>
+			 			<th scope="col">Usuario</th>
 			 			<th scope="col">Subido</th>
 			 			@if(Auth::user()->hasRole("Admin"))
-			 			<th scope="col">Usuario</th>
+			 			<th scope="col">Nombre</th>
 			 			@endif
 			 			<th scope="col" width="27%">Ver</th>
 			 			<th scope="col">Eliminar</th>

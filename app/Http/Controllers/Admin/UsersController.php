@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\File;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Storage;
 
 class UsersController extends Controller
 {
@@ -102,9 +105,35 @@ class UsersController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::find($id);
-        $user->update($request->except('roles'));
+        $img_prev = $user->image;
+        $user->update($request->except('roles','image'));
         $user->roles()->sync($request->get('roles'));
+        //dd($request->get('image'));
+        $max_size = (int)ini_get('upload_max_filesize')*1000;
 
+        $request->file('image');
+
+        $uploadFile = new File();
+        $file = $request->file('image');
+
+        //$name = time().$file->getClientOriginalExtension();
+        //$name = time().$file->getClientOriginalName();
+        $name = $file->getClientOriginalName();
+        $ext = $file->getClientOriginalExtension();
+
+        $user->update(['image' => $name]);
+
+
+        if(Storage::putFileAs('/public/'. $this->getUserFolder(). '/' . 'avatar' . '/', $file, $name)){
+        }
+
+        if(Storage::disk('local')->exists('/public/' . $this->getUserFolder() . '/' . 'avatar' . '/', $file, $name)){
+            if(Storage::disk('local')->delete('/public/' . $this->getUserFolder() . '/' . 'avatar' . '/', $file, $name )){
+                $file->delete();
+            }
+        }
+
+        
         return back()->with('info',['success','Se han actualizado los datos del usuario']);
     }
 
@@ -119,4 +148,15 @@ class UsersController extends Controller
         $user = User::find($id)->delete();
         return back()->with('info',['success','Se ha eliminado el usuario']);
     }
+
+    
+    private function getUserFolder(){
+        $folder = Auth::user()->name . '-' . Auth::id();
+        return str_slug($folder);
+    }
+
+
+
+
+
 }

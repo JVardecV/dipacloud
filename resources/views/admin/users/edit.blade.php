@@ -4,7 +4,7 @@
 
 @section('content')
 
-<form class="was-validated" action="{{ route('user.update',$user->id) }}" method="POST">
+<form class="was-validated" action="{{ route('user.update',$user->id) }}" method="POST" enctype="multipart/form-data">
 	@csrf
 	@method('PATCH')
 	<div class="form-row">
@@ -15,7 +15,7 @@
 		</div>
 		<div class="col-sm-6 mb-3">
 			<label for="UserFoto">Foto del usuario</label>
-			<input type="file" name="image" class="form-control is-valid" id="UserFoto" required>
+			<input type="file" name="image" class="form-control-file is-valid" id="UserFoto" required>
 			<div class="invalid-feedback">¡No puedes dejar el usuario sin fotografía!</div>
 		</div>
 		<div class="col-sm-6 mb-3">
